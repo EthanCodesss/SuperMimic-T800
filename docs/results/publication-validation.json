@@ -65,5 +65,7 @@
     "tracked_files_before_this_record": 232,
     "credential_pattern_matches": 0,
     "files_over_10_MiB": 0
-  }
+  },
+  "evaluation_repeatability_note": "Both runs complete 13066 steps. Repeated GPU rollout is not claimed to be bitwise deterministic; weights, optimizer states and reference arrays match exactly, while metrics differ slightly.",
+  "evaluation_return_absolute_difference": 4.156212811812221e-05
 }
