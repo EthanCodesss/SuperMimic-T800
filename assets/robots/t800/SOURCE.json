@@ -1,0 +1,20 @@
+{
+  "robot": "T800",
+  "model": "vendor/engineai_gmr/assets/engineai_t800/xml/serial_t800.xml",
+  "geometry_commit": "71e02c0598f6d6c6fe1514bf1d69bc24e82f801e",
+  "native_sdk_commit": "335c60e88772c26c7852d0abd6b3c7439037dd8f",
+  "sdk_gmr_xml_comparison": "serial_t800, serial_links, serial_actuators and assets XML text are equal after stripping trailing whitespace",
+  "control_config": "vendor/engineai_rl_lab_reference/t800.py",
+  "control_commit": "c53f7ec614e34f1ea514cefb935894082f3d4c2a",
+  "simulation_only": true,
+  "adaptations": [
+    "replace torque motors with MuJoCo implicit PD",
+    "name collision geoms for deterministic foot friction selection",
+    "disable self-collisions as in official RL task",
+    "omit randomized 1-3 step delay for initial deterministic baseline",
+    "record nominal velocity ratings; no hard velocity clamp",
+    "set simulation dt=.005, control dt=.02",
+    "retain 25 joint DOFs including head and elbow yaw"
+  ],
+  "joint_mapping": "always by joint name; see src/supermimic/robots/t800.py"
+}

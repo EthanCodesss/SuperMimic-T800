@@ -1,0 +1,249 @@
+{
+  "created_utc": "2026-10-28T13:39:05.554245+00:00",
+  "run_name": "t800_walk1_anchor_headfixed_8104",
+  "robot": "t800",
+  "motion": {
+    "path": "data/npz/t800_walk1_selected_seed/walk1_subject1.npz",
+    "frames": 13066
+  },
+  "initialization": "random_seed_0",
+  "anchor_obs": true,
+  "budget": {
+    "additional_updates": 8104,
+    "same_original_learning_rate_schedule": true
+  },
+  "evaluation": {
+    "checkpoint_interval_control_steps": 1000,
+    "checkpoint_interval_updates": 0,
+    "checkpoint_updates": [
+      2000,
+      4052,
+      8104
+    ],
+    "fixed_wm_windows": null,
+    "robustness_seeds_final": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "deterministic_full_clip": true,
+    "physical_evaluator": "scripts/evaluate_t800_anchor_head.py",
+    "benchmark_evaluator": "scripts/evaluate_t800_anchor_head_benchmark.py",
+    "wm_test_window_rule": "Freeze the first valid independent evaluation windows for later checkpoints",
+    "checkpoint_metrics": [
+      "normalized_return",
+      "normalized_full_clip_return",
+      "joint_position_rmse_rad",
+      "non_head_joint_rmse_rad",
+      "head_default_rmse_rad",
+      "head_raw_action_max_abs",
+      "mean_root_position_error_m",
+      "mean_abs_yaw_error_deg",
+      "mean_step_reward_terms"
+    ]
+  },
+  "execution_precision": {
+    "matmul": "ieee"
+  },
+  "execution_optimization": {
+    "recompute_mode": "policy"
+  },
+  "task_adapter": {
+    "profile": "g1_semantic_v1",
+    "tracked_bodies": [
+      "LINK_BASE",
+      "LINK_HIP_ROLL_L",
+      "LINK_KNEE_PITCH_L",
+      "LINK_ANKLE_ROLL_L",
+      "LINK_HIP_ROLL_R",
+      "LINK_KNEE_PITCH_R",
+      "LINK_ANKLE_ROLL_R",
+      "LINK_WAIST_YAW",
+      "LINK_SHOULDER_ROLL_L",
+      "LINK_ELBOW_PITCH_L",
+      "LINK_WRIST_END_L",
+      "LINK_SHOULDER_ROLL_R",
+      "LINK_ELBOW_PITCH_R",
+      "LINK_WRIST_END_R"
+    ],
+    "anchor_body": "LINK_WAIST_YAW",
+    "root_body": "LINK_BASE",
+    "g1_to_t800": {
+      "pelvis": "LINK_BASE",
+      "left_hip_roll_link": "LINK_HIP_ROLL_L",
+      "left_knee_link": "LINK_KNEE_PITCH_L",
+      "left_ankle_roll_link": "LINK_ANKLE_ROLL_L",
+      "right_hip_roll_link": "LINK_HIP_ROLL_R",
+      "right_knee_link": "LINK_KNEE_PITCH_R",
+      "right_ankle_roll_link": "LINK_ANKLE_ROLL_R",
+      "torso_link": "LINK_WAIST_YAW",
+      "left_shoulder_roll_link": "LINK_SHOULDER_ROLL_L",
+      "left_elbow_link": "LINK_ELBOW_PITCH_L",
+      "left_wrist_yaw_link": "LINK_WRIST_END_L",
+      "right_shoulder_roll_link": "LINK_SHOULDER_ROLL_R",
+      "right_elbow_link": "LINK_ELBOW_PITCH_R",
+      "right_wrist_yaw_link": "LINK_WRIST_END_R"
+    },
+    "head_control": "23 active body outputs; head PD targets fixed at default; 25-D state/action schema retained.",
+    "elbow_choice": "Track the body at the elbow flexion hinge, as G1 elbow_link; T800 ELBOW_YAW is 13.2 cm farther down the forearm.",
+    "anchor_obs": true,
+    "helper_sha256": "f668523d5db3a8a873c674c04ad4069ca5c527d0f37c3ed815c9de7b3931d929"
+  },
+  "action_parameterization": {
+    "mode": "torque_kp",
+    "formula": "0.25 * effort_limit / Kp",
+    "joint_names": [
+      "J00_HIP_PITCH_L",
+      "J01_HIP_ROLL_L",
+      "J02_HIP_YAW_L",
+      "J03_KNEE_PITCH_L",
+      "J04_ANKLE_PITCH_L",
+      "J05_ANKLE_ROLL_L",
+      "J06_HIP_PITCH_R",
+      "J07_HIP_ROLL_R",
+      "J08_HIP_YAW_R",
+      "J09_KNEE_PITCH_R",
+      "J10_ANKLE_PITCH_R",
+      "J11_ANKLE_ROLL_R",
+      "J12_TORSO_YAW",
+      "J13_SHOULDER_PITCH_L",
+      "J14_SHOULDER_ROLL_L",
+      "J15_SHOULDER_YAW_L",
+      "J16_ELBOW_PITCH_L",
+      "J17_ELBOW_YAW_L",
+      "J18_SHOULDER_PITCH_R",
+      "J19_SHOULDER_ROLL_R",
+      "J20_SHOULDER_YAW_R",
+      "J21_ELBOW_PITCH_R",
+      "J22_ELBOW_YAW_R",
+      "J23_HEAD_PITCH",
+      "J24_HEAD_YAW"
+    ],
+    "scale": {
+      "J00_HIP_PITCH_L": 0.5475694444444444,
+      "J01_HIP_ROLL_L": 0.925,
+      "J02_HIP_YAW_L": 0.555,
+      "J03_KNEE_PITCH_L": 0.5475694444444444,
+      "J04_ANKLE_PITCH_L": 1.0,
+      "J05_ANKLE_ROLL_L": 1.0,
+      "J06_HIP_PITCH_R": 0.5475694444444444,
+      "J07_HIP_ROLL_R": 0.925,
+      "J08_HIP_YAW_R": 0.555,
+      "J09_KNEE_PITCH_R": 0.5475694444444444,
+      "J10_ANKLE_PITCH_R": 1.0,
+      "J11_ANKLE_ROLL_R": 1.0,
+      "J12_TORSO_YAW": 0.555,
+      "J13_SHOULDER_PITCH_L": 0.8,
+      "J14_SHOULDER_ROLL_L": 0.8,
+      "J15_SHOULDER_YAW_L": 0.8,
+      "J16_ELBOW_PITCH_L": 0.8,
+      "J17_ELBOW_YAW_L": 0.26,
+      "J18_SHOULDER_PITCH_R": 0.8,
+      "J19_SHOULDER_ROLL_R": 0.8,
+      "J20_SHOULDER_YAW_R": 0.8,
+      "J21_ELBOW_PITCH_R": 0.8,
+      "J22_ELBOW_YAW_R": 0.26,
+      "J23_HEAD_PITCH": 0.26,
+      "J24_HEAD_YAW": 0.26
+    },
+    "helper_sha256": "e0e96307869f74719da32ba323425a51feb9e141fc1eda0ed98bc9fd905d6aab"
+  },
+  "frozen_file_sha256": {
+    "scripts/train_t800_anchor_head.py": "caaf9007a294061d3da30f445332103d994482ec1221aa8eccdd2413ff368fa3",
+    "scripts/run_t800_anchor_head_stage.py": "cba8a6e96aba30a290dc6321e59b6abf56700a185a5556bd734920c0fb467b32",
+    "scripts/evaluate_t800_anchor_head.py": "33927373716f2c404e4c89d0bacbc5412f72793e598829cba52cc731b3eff526",
+    "scripts/evaluate_t800_anchor_head_benchmark.py": "9545ef47e321ee93dcc26067c95636336207231f517355645a0f12735d15f9b3",
+    "scripts/t800_anchor_head_profile.py": "322021ff0630c9e5e29743253181594ac1ab8bff211835af39d938016fe13626",
+    "scripts/fk_compile_compat.py": "4c6e85f7e67186f1df1974323e021800036afbf574ae151a395c4b4ba6562ae4",
+    "scripts/t800_task_adapter.py": "f668523d5db3a8a873c674c04ad4069ca5c527d0f37c3ed815c9de7b3931d929",
+    "scripts/t800_action_scaling.py": "e0e96307869f74719da32ba323425a51feb9e141fc1eda0ed98bc9fd905d6aab",
+    "scripts/train_strict.py": "9f2879c0fdebb2d885fb75ee683e635aed99b23bce35bafd7b37ffb39f2c00e6",
+    "configs/strict-source-lock.json": "08d5b6dae635e2fee22f4383a1ea7671a2d80b010ae0cfa7cef6471f908b76b4",
+    "data/npz/t800_walk1_selected_seed/walk1_subject1.npz": "f2590623579c7a902c1244d39f17e64471879a8c226714312eeba212548191d0",
+    "logs/t800_anchor_head_fullbatch_probe/ckpt_initial.pt": "5d1cf072aea1a19a32010a0fda7c9addd23195d12d8b0a5d4da21d7a61f8614a",
+    "scripts/t800_fixed_head.py": "76801c874213bec8e284fb2f8babcc10e70c6cd08ed12e612d40ddd895876e99",
+    "scripts/t800_fk_profile.py": "f04b4b92c293977d68089396576f9a8fe2801a48477c439c524abe039437a493",
+    "scripts/audit_t800_anchor_head.py": "3b2578f02d9e22249d039042915420d6ea92672b2d6a2a927eebe4e37f6d59a5",
+    "scripts/prepare_t800_anchor_head_protocol.py": "7790b97894c971d9abf45b6fbdc37655486e3b55af1c1b66a0827aa537c7390c",
+    "reports/t800_fkfix_study/protocol.json": "0ec76385cb712643e8d5d2b4109ed5409d992823547c38108611446831844949",
+    "reports/task_alignment_study/data-protocol.json": "9ec2b6f6c87bb2cafddf1bbf3bc77b087fcfb618da8e95b60bf5b82e86548347",
+    "reports/task_alignment_study/reference-quality-status.json": "ca59279707250123da61793c6b8427641d218d984be1d23642085ef94ad20bec",
+    "reports/t800_anchor_head_study/profile-audit.json": "a2fb10c09ce40a5e9cce1a348f73444be5e594bf4a988c1a8e15f830f9714742",
+    "optimizations/__init__.py": "2eaa92651aa8ea357e42e6571bdc3724e75e3edbeae34d2c3ee68e16c23bd06c",
+    "optimizations/policy_trainer.py": "204aa58b227ebc1d62fffd79c94ca6141537174ada924b772eff8bfb0805b062",
+    "optimizations/recompute.py": "96f76071dbd4d0fef2175d354a5d046a2fa7d20940d2eb5883671578257e36b1",
+    "optimizations/rollout.py": "e102ec10da1e143f98651d078c581e860d87e8e72350851df644ef5cece582d8",
+    "optimizations/selective_recompute.py": "5fc91b972d38c6c5a10a41e57ee4288abde5fabd026d43e01418c38aa8f9956a"
+  },
+  "reference_preparation": "Initial IK posture selected before training, full continuous retarget then shared-array crop.",
+  "reference_initial": "logs/t800_anchor_head_fullbatch_probe/ckpt_initial.pt",
+  "fk_compile_compat": {
+    "profile": "fk_integer_enum_v1",
+    "source_file": "/home/ethan/Desktop/supermimic/src/supermimic/kinematics/g1_fk.py",
+    "source_sha256": "cbdeb7d9197491a4f9916bb4903770d773c2f1b20d13a88b6d204ea7d2241c33",
+    "helper_sha256": "4c6e85f7e67186f1df1974323e021800036afbf574ae151a395c4b4ba6562ae4",
+    "original_forward_sha256": "ab24fe2fb53d477e65170b00c4a24515025efe8f8c217cf4ed7cb3be1ffea2d3",
+    "corrected_forward_sha256": "b521185d1b6f15902be136e3a7d3bb7ccb23d53735321e0096ed66c0217fc96a",
+    "change": "l.joint_type == mujoco.mjtJoint.mjJNT_HINGE -> l.joint_type == int(mujoco.mjtJoint.mjJNT_HINGE)",
+    "reason": "Local torch.compile traces integer == MuJoCo pybind enum as false, dropping hinge FK branches."
+  },
+  "t800_profile_sha256": "322021ff0630c9e5e29743253181594ac1ab8bff211835af39d938016fe13626",
+  "preflight": {
+    "full_batch_result": "reports/microbatch/t800_anchor_head_fullbatch_probe/result.json",
+    "combined_profile_audit": "reports/t800_anchor_head_study/profile-audit.json",
+    "physical_evaluator": "reports/t800_anchor_head_study/probe-evaluation.json",
+    "benchmark": "reports/t800_anchor_head_study/probe-benchmark.json"
+  },
+  "comparison_limit": "User-requested combined anchor-observation and fixed-head intervention; cannot attribute gains independently to either change. Single seed; fresh seed 0 initialization with changed policy/critic input shapes, not identical baseline weights.",
+  "head_control": {
+    "profile": "t800_fixed_head_default_v1",
+    "joint_names": [
+      "J23_HEAD_PITCH",
+      "J24_HEAD_YAW"
+    ],
+    "joint_indices": [
+      23,
+      24
+    ],
+    "target": "robot default_joint_pos, via unchanged PD",
+    "policy_action_dim": 25,
+    "effective_controlled_action_dim": 23,
+    "execution_noise": "Original Gaussian draw; head entries discarded before target and replay",
+    "state": "All 25 physical joint positions and velocities retained; no state clamping",
+    "reward": "Head excluded from tracked bodies; original penalties retained on masked actions and actual state",
+    "helper_sha256": "76801c874213bec8e284fb2f8babcc10e70c6cd08ed12e612d40ddd895876e99"
+  },
+  "comparison": {
+    "baseline_run": "t800_walk1_full_fkfixed_8104",
+    "changes": [
+      "9-D waist-anchor observations in real and imagined policy/critic goals",
+      "Fixed default head PD targets; masked head action outputs, execution noise and replay"
+    ],
+    "matched": [
+      "reference NPZ",
+      "25-D state/action schema",
+      "body reward mapping and weights",
+      "PD constants",
+      "action scales",
+      "4096 environments and actor batch",
+      "32-step imagination",
+      "8104 updates",
+      "learning schedule",
+      "seed 0"
+    ],
+    "unchanged_algorithm_sections_checked": [
+      "data",
+      "env",
+      "world_model",
+      "wm_trainer",
+      "policy",
+      "critic",
+      "policy_trainer",
+      "schedule",
+      "seed"
+    ],
+    "initialization_limit": "Same random seed, different goal input sizes; baseline actor/critic weights are not identical."
+  }
+}

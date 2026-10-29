@@ -1,0 +1,47 @@
+--- a/src/supermimic/data/replay_buffer.py
++++ b/src/supermimic/data/replay_buffer.py
+@@ -132,7 +132,10 @@
+             a_clean=self.a[ee[:-1], tt[:-1]],
+             xi=self.xi[e, t],
+             reward=self.r[ee[:-1], tt[:-1]],
+-            done=self.done[ee[1:], tt[1:]],
++            # Each transition row already stores done(s_{t+1}), alongside a_t
++            # and r_{t+1}. Reading the next row labels the penultimate action
++            # terminal one step early.
++            done=self.done[ee[:-1], tt[:-1]],
+             frame=self.frame[ee[:-1], tt[:-1]],
+         )
+ 
+--- a/src/supermimic/imagination/policy_trainer.py
++++ b/src/supermimic/imagination/policy_trainer.py
+@@ -76,7 +76,9 @@
+         self.opt.zero_grad(set_to_none=True)
+         loss.backward()
+         allreduce_grads(self.policy)
+-        gn = torch.nn.utils.clip_grad_norm_(self.policy.parameters(), cfg.grad_clip_norm)
++        # A divergent imagined rollout can overflow the float32 gradient norm.
++        # Do not silently multiply by zero/NaN and continue an invalid update.
++        gn = torch.nn.utils.clip_grad_norm_(self.policy.parameters(), cfg.grad_clip_norm, error_if_nonfinite=True)
+         torch.nn.utils.clip_grad_value_(self.policy.parameters(), cfg.grad_clip_value)
+         self.opt.step()
+         self.wm.requires_grad_(True)
+@@ -119,7 +121,7 @@
+                     self.critic_opt.zero_grad(set_to_none=True)
+                     closs.backward()
+                     allreduce_grads(self.critic)
+-                    torch.nn.utils.clip_grad_norm_(self.critic.parameters(), cfg.critic_grad_clip)
++                    torch.nn.utils.clip_grad_norm_(self.critic.parameters(), cfg.critic_grad_clip, error_if_nonfinite=True)
+                     self.critic_opt.step()
+                     last = closs.detach()
+             metrics["critic_loss"] = float(last)
+--- a/src/supermimic/world_model/wm_trainer.py
++++ b/src/supermimic/world_model/wm_trainer.py
+@@ -57,7 +57,7 @@
+             self.opt.zero_grad(set_to_none=True)
+             loss.backward()
+             allreduce_grads(self.wm)
+-            gn = torch.nn.utils.clip_grad_norm_(self.wm.parameters(), self.cfg.grad_clip)
++            gn = torch.nn.utils.clip_grad_norm_(self.wm.parameters(), self.cfg.grad_clip, error_if_nonfinite=True)
+             self.opt.step()
+             m["loss"] = loss.detach()
+             m["grad_norm"] = gn.detach()

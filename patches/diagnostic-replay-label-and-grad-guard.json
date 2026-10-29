@@ -1,0 +1,12 @@
+{
+  "baseline_commit": "ba6105349069bf040f1fdad60873d13138d505a2",
+  "purpose": "Preserve prior diagnostic fixes as an optional patch; strict training retains upstream behavior.",
+  "patch_sha256": "1a3fe40b042b5d560e4d4b11278017244032d64f8f2c4e2161d9440a38c4d2a7",
+  "files": [
+    "data/replay_buffer.py",
+    "imagination/policy_trainer.py",
+    "world_model/wm_trainer.py"
+  ],
+  "historical_report": "reports/control-diagnosis.json",
+  "not_applied_in_strict_mode": true
+}

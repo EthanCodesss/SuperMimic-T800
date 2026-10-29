@@ -1,0 +1,93 @@
+{
+  "original_file_sha256": "f2590623579c7a902c1244d39f17e64471879a8c226714312eeba212548191d0",
+  "excluded_metadata": [
+    "source"
+  ],
+  "arrays": {
+    "fps": {
+      "shape": [
+        1
+      ],
+      "dtype": "float32",
+      "sha256": "0c05e73c2748cbfd2e38c0afaf9cb594f78e14fefa3c24190ebc121d45dbee4f"
+    },
+    "joint_pos": {
+      "shape": [
+        13066,
+        25
+      ],
+      "dtype": "float32",
+      "sha256": "6ed47ddbea886b90c16b366af20d886a3d0c7bc754ffe5d753def0f0163bd861"
+    },
+    "joint_vel": {
+      "shape": [
+        13066,
+        25
+      ],
+      "dtype": "float32",
+      "sha256": "8eb10bbecd6b9bf3651383b55523da96ca3afa40c984112c7c97ad63ca8292e7"
+    },
+    "body_pos_w": {
+      "shape": [
+        13066,
+        30,
+        3
+      ],
+      "dtype": "float32",
+      "sha256": "f9415fa1ec85879537dba5848ea13e3d4016892d80331d34379445a1489a3f38"
+    },
+    "body_quat_w": {
+      "shape": [
+        13066,
+        30,
+        4
+      ],
+      "dtype": "float32",
+      "sha256": "f21404fd8f9f8dee68ce94dd62587d28e956255aefc3bd7d61a78fe0a43fcde7"
+    },
+    "body_lin_vel_w": {
+      "shape": [
+        13066,
+        30,
+        3
+      ],
+      "dtype": "float32",
+      "sha256": "8435dc6de00165286a90c0dc67294daac01173f7b6b7481520402b3aeef0c5a4"
+    },
+    "body_ang_vel_w": {
+      "shape": [
+        13066,
+        30,
+        3
+      ],
+      "dtype": "float32",
+      "sha256": "25221bbfd1ee4b01a87bd1128b75194eac996aa1a569c6054dcc204c0fcf5702"
+    },
+    "joint_names": {
+      "shape": [
+        25
+      ],
+      "dtype": "<U20",
+      "sha256": "fbfda239fcd6b3ee004a59a5763dada13b3f52970ba0439b4a453e15875bfcec"
+    },
+    "body_names": {
+      "shape": [
+        30
+      ],
+      "dtype": "<U21",
+      "sha256": "3fac07712e5a74f0705c53721ab9573e975adfa846e72c7a084955d3e3e3273c"
+    },
+    "input_fps": {
+      "shape": [
+        1
+      ],
+      "dtype": "float64",
+      "sha256": "a6eb657cf3aab7d4083b6f0eca93d6e4726d1db995b090f29decf45f2376682d"
+    },
+    "robot": {
+      "shape": [],
+      "dtype": "<U4",
+      "sha256": "922880da105a21fa72e5aefae32adb264707762d31c63c9efd52396e1725ce9e"
+    }
+  }
+}

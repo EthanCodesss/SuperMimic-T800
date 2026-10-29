@@ -1,0 +1,58 @@
+{
+  "anchor-head-final.json": {
+    "original_path": "reports/training/t800_walk1_anchor_headfixed_8104/final.json",
+    "sha256": "88c92ff0d6e08ed9bd3483f3003f11e6159ca4ae7c348ee55d1b727a10fd6bf8"
+  },
+  "anchor-head-benchmark.json": {
+    "original_path": "reports/training/t800_walk1_anchor_headfixed_8104/eval_ckpt_u0008104.upstream.json",
+    "sha256": "a538be5cbaa12ce3548c4837b95f9e7ffd0c42bdfb038c9304c5679f32ad0002"
+  },
+  "anchor-head-robustness.json": {
+    "original_path": "reports/training/t800_walk1_anchor_headfixed_8104/robustness.json",
+    "sha256": "7c36a8f74fe2dce36bf18ddc05fe5858a2ed23cc0ab33bc64a83fd27b0013ed2"
+  },
+  "anchor-head-protocol.json": {
+    "original_path": "reports/t800_anchor_head_study/protocol.json",
+    "sha256": "614c6fce77f1b9e133ebb3ddef1f93d166c61cd3c4d52d928cd26c86dba1f5e8"
+  },
+  "anchor-head-audit.json": {
+    "original_path": "reports/t800_anchor_head_study/profile-audit.json",
+    "sha256": "a2fb10c09ce40a5e9cce1a348f73444be5e594bf4a988c1a8e15f830f9714742"
+  },
+  "anchor-head-config.json": {
+    "original_path": "logs/t800_walk1_anchor_headfixed_8104/config.json",
+    "sha256": "effe79f9f1bb93b1bcfa937cc5ce182ee0fc1ae9e7ffaa1b2646a0f43acd86e3"
+  },
+  "anchor-head-execution.json": {
+    "original_path": "logs/t800_walk1_anchor_headfixed_8104/execution.json",
+    "sha256": "ee18dcbdf9244c2baacccf1228d9e8f401ebfc44059931fd501e6358890f2fef"
+  },
+  "baseline-final.json": {
+    "original_path": "reports/training/t800_walk1_full_fkfixed_8104/final.json",
+    "sha256": "1048c7d3c36e9154f136762c2fc0b8dea7e16badc33411f763a7fe0259c74cc2"
+  },
+  "baseline-benchmark.json": {
+    "original_path": "reports/training/t800_walk1_full_fkfixed_8104/eval_ckpt_u0008104.upstream.json",
+    "sha256": "81f9e05748acde935796f41f793e4e4099093e49a518917a6aa6464405ccbcab"
+  },
+  "baseline-joint-errors.json": {
+    "original_path": "reports/t800_fkfix_study/joint-error-breakdown.json",
+    "sha256": "059ce2193ccf5254c10cfea5921505da8f108f62b1f0e88152c0babe3e37c47f"
+  },
+  "reference-provenance.json": {
+    "original_path": "data/npz/t800_walk1_selected_seed/walk1_subject1.provenance.json",
+    "sha256": "41d86c226f97e918f20064751e1344d0c8ec33caadf812f44e6c5bc0e36bd91d"
+  },
+  "reference-quality.json": {
+    "original_path": "reports/task_alignment_study/reference-quality-status.json",
+    "sha256": "ca59279707250123da61793c6b8427641d218d984be1d23642085ef94ad20bec"
+  },
+  "reference-ik-seed.json": {
+    "original_path": "reports/task_alignment_study/ik-selected-seed.json",
+    "sha256": "b117ba505ebd93d0813c5a8a7c3243f64a5fec89a6d98165f9a64904b25e62f6"
+  },
+  "data-protocol.json": {
+    "original_path": "reports/task_alignment_study/data-protocol.json",
+    "sha256": "9ec2b6f6c87bb2cafddf1bbf3bc77b087fcfb618da8e95b60bf5b82e86548347"
+  }
+}

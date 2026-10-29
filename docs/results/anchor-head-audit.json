@@ -1,0 +1,497 @@
+{
+  "status": "passed",
+  "source_commit": "ba6105349069bf040f1fdad60873d13138d505a2",
+  "task_adapter": {
+    "profile": "g1_semantic_v1",
+    "tracked_bodies": [
+      "LINK_BASE",
+      "LINK_HIP_ROLL_L",
+      "LINK_KNEE_PITCH_L",
+      "LINK_ANKLE_ROLL_L",
+      "LINK_HIP_ROLL_R",
+      "LINK_KNEE_PITCH_R",
+      "LINK_ANKLE_ROLL_R",
+      "LINK_WAIST_YAW",
+      "LINK_SHOULDER_ROLL_L",
+      "LINK_ELBOW_PITCH_L",
+      "LINK_WRIST_END_L",
+      "LINK_SHOULDER_ROLL_R",
+      "LINK_ELBOW_PITCH_R",
+      "LINK_WRIST_END_R"
+    ],
+    "anchor_body": "LINK_WAIST_YAW",
+    "root_body": "LINK_BASE",
+    "g1_to_t800": {
+      "pelvis": "LINK_BASE",
+      "left_hip_roll_link": "LINK_HIP_ROLL_L",
+      "left_knee_link": "LINK_KNEE_PITCH_L",
+      "left_ankle_roll_link": "LINK_ANKLE_ROLL_L",
+      "right_hip_roll_link": "LINK_HIP_ROLL_R",
+      "right_knee_link": "LINK_KNEE_PITCH_R",
+      "right_ankle_roll_link": "LINK_ANKLE_ROLL_R",
+      "torso_link": "LINK_WAIST_YAW",
+      "left_shoulder_roll_link": "LINK_SHOULDER_ROLL_L",
+      "left_elbow_link": "LINK_ELBOW_PITCH_L",
+      "left_wrist_yaw_link": "LINK_WRIST_END_L",
+      "right_shoulder_roll_link": "LINK_SHOULDER_ROLL_R",
+      "right_elbow_link": "LINK_ELBOW_PITCH_R",
+      "right_wrist_yaw_link": "LINK_WRIST_END_R"
+    },
+    "head_control": "23 active body outputs; head PD targets fixed at default; 25-D state/action schema retained.",
+    "elbow_choice": "Track the body at the elbow flexion hinge, as G1 elbow_link; T800 ELBOW_YAW is 13.2 cm farther down the forearm.",
+    "anchor_obs": true,
+    "helper_sha256": "f668523d5db3a8a873c674c04ad4069ca5c527d0f37c3ed815c9de7b3931d929"
+  },
+  "action_parameterization": {
+    "mode": "torque_kp",
+    "formula": "0.25 * effort_limit / Kp",
+    "joint_names": [
+      "J00_HIP_PITCH_L",
+      "J01_HIP_ROLL_L",
+      "J02_HIP_YAW_L",
+      "J03_KNEE_PITCH_L",
+      "J04_ANKLE_PITCH_L",
+      "J05_ANKLE_ROLL_L",
+      "J06_HIP_PITCH_R",
+      "J07_HIP_ROLL_R",
+      "J08_HIP_YAW_R",
+      "J09_KNEE_PITCH_R",
+      "J10_ANKLE_PITCH_R",
+      "J11_ANKLE_ROLL_R",
+      "J12_TORSO_YAW",
+      "J13_SHOULDER_PITCH_L",
+      "J14_SHOULDER_ROLL_L",
+      "J15_SHOULDER_YAW_L",
+      "J16_ELBOW_PITCH_L",
+      "J17_ELBOW_YAW_L",
+      "J18_SHOULDER_PITCH_R",
+      "J19_SHOULDER_ROLL_R",
+      "J20_SHOULDER_YAW_R",
+      "J21_ELBOW_PITCH_R",
+      "J22_ELBOW_YAW_R",
+      "J23_HEAD_PITCH",
+      "J24_HEAD_YAW"
+    ],
+    "scale": {
+      "J00_HIP_PITCH_L": 0.5475694444444444,
+      "J01_HIP_ROLL_L": 0.925,
+      "J02_HIP_YAW_L": 0.555,
+      "J03_KNEE_PITCH_L": 0.5475694444444444,
+      "J04_ANKLE_PITCH_L": 1.0,
+      "J05_ANKLE_ROLL_L": 1.0,
+      "J06_HIP_PITCH_R": 0.5475694444444444,
+      "J07_HIP_ROLL_R": 0.925,
+      "J08_HIP_YAW_R": 0.555,
+      "J09_KNEE_PITCH_R": 0.5475694444444444,
+      "J10_ANKLE_PITCH_R": 1.0,
+      "J11_ANKLE_ROLL_R": 1.0,
+      "J12_TORSO_YAW": 0.555,
+      "J13_SHOULDER_PITCH_L": 0.8,
+      "J14_SHOULDER_ROLL_L": 0.8,
+      "J15_SHOULDER_YAW_L": 0.8,
+      "J16_ELBOW_PITCH_L": 0.8,
+      "J17_ELBOW_YAW_L": 0.26,
+      "J18_SHOULDER_PITCH_R": 0.8,
+      "J19_SHOULDER_ROLL_R": 0.8,
+      "J20_SHOULDER_YAW_R": 0.8,
+      "J21_ELBOW_PITCH_R": 0.8,
+      "J22_ELBOW_YAW_R": 0.26,
+      "J23_HEAD_PITCH": 0.26,
+      "J24_HEAD_YAW": 0.26
+    },
+    "helper_sha256": "e0e96307869f74719da32ba323425a51feb9e141fc1eda0ed98bc9fd905d6aab"
+  },
+  "head_control": {
+    "profile": "t800_fixed_head_default_v1",
+    "joint_names": [
+      "J23_HEAD_PITCH",
+      "J24_HEAD_YAW"
+    ],
+    "joint_indices": [
+      23,
+      24
+    ],
+    "target": "robot default_joint_pos, via unchanged PD",
+    "policy_action_dim": 25,
+    "effective_controlled_action_dim": 23,
+    "execution_noise": "Original Gaussian draw; head entries discarded before target and replay",
+    "state": "All 25 physical joint positions and velocities retained; no state clamping",
+    "reward": "Head excluded from tracked bodies; original penalties retained on masked actions and actual state",
+    "helper_sha256": "76801c874213bec8e284fb2f8babcc10e70c6cd08ed12e612d40ddd895876e99"
+  },
+  "head_control_audit": {
+    "pd_target_max_abs_error": 0.0,
+    "body_execution_noise_std": 0.10015952587127686,
+    "replay_clean_and_executed_head_actions_zero": true,
+    "imagined_head_actions_zero": true,
+    "head_output_gradient_norm": 0.0,
+    "body_output_gradient_norm": 0.01918504573404789,
+    "anchor_input_weight_gradient_norm": 1.5806927322614683e-08
+  },
+  "fk_compile_compat": {
+    "profile": "fk_integer_enum_v1",
+    "source_file": "/home/ethan/Desktop/supermimic/src/supermimic/kinematics/g1_fk.py",
+    "source_sha256": "cbdeb7d9197491a4f9916bb4903770d773c2f1b20d13a88b6d204ea7d2241c33",
+    "helper_sha256": "4c6e85f7e67186f1df1974323e021800036afbf574ae151a395c4b4ba6562ae4",
+    "original_forward_sha256": "ab24fe2fb53d477e65170b00c4a24515025efe8f8c217cf4ed7cb3be1ffea2d3",
+    "corrected_forward_sha256": "b521185d1b6f15902be136e3a7d3bb7ccb23d53735321e0096ed66c0217fc96a",
+    "change": "l.joint_type == mujoco.mjtJoint.mjJNT_HINGE -> l.joint_type == int(mujoco.mjtJoint.mjJNT_HINGE)",
+    "reason": "Local torch.compile traces integer == MuJoCo pybind enum as false, dropping hinge FK branches."
+  },
+  "t800_profile_sha256": "322021ff0630c9e5e29743253181594ac1ab8bff211835af39d938016fe13626",
+  "compiled_imagstep_outputs": {
+    "next_state": {
+      "max_abs": 1.1920928955078125e-07,
+      "relative_l2": 6.124247682237391e-09,
+      "cosine": 1.0
+    },
+    "reward": {
+      "max_abs": 7.450580596923828e-09,
+      "relative_l2": 8.051315951883542e-08,
+      "cosine": 0.9999999999999968
+    },
+    "reward_terms": {
+      "max_abs": 3.4924596548080444e-09,
+      "relative_l2": 1.2428941963588796e-07,
+      "cosine": 0.9999999999999923
+    },
+    "termination_logit": {
+      "max_abs": 5.587935447692871e-09,
+      "relative_l2": 1.5857400372420807e-07,
+      "cosine": 0.9999999999999893
+    },
+    "observation": {
+      "max_abs": 1.1920928955078125e-07,
+      "relative_l2": 5.696587043218543e-09,
+      "cosine": 0.9999999999999999
+    },
+    "anchor_pose": {
+      "max_abs": 2.384185791015625e-07,
+      "relative_l2": 1.9913487286630957e-08,
+      "cosine": 0.9999999999999998
+    }
+  },
+  "compiled_reward_gradients": {
+    "state": {
+      "max_abs": 6.51925802230835e-08,
+      "relative_l2": 4.033095062794989e-07,
+      "cosine": 0.999999999999919
+    },
+    "action": {
+      "max_abs": 5.820766091346741e-11,
+      "relative_l2": 8.985330446917524e-09,
+      "cosine": 0.9999999999999999
+    }
+  },
+  "joint_state_reward_gradient_norm": 0.12153485417366028,
+  "gradient_scope": "Full-size randomly initialized dynamics with a nonzero diagnostic output layer; 8 real simulator states; not a trained-policy convergence test.",
+  "motion": "data/npz/t800_walk1_selected_seed/walk1_subject1.npz",
+  "motion_sha256": "f2590623579c7a902c1244d39f17e64471879a8c226714312eeba212548191d0",
+  "mapping_evidence": [
+    {
+      "g1": "pelvis",
+      "t800": "LINK_BASE",
+      "parent": "world",
+      "joints": [
+        ""
+      ],
+      "ancestry": [
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.0,
+        0.0,
+        1.03
+      ]
+    },
+    {
+      "g1": "left_hip_roll_link",
+      "t800": "LINK_HIP_ROLL_L",
+      "parent": "LINK_HIP_PITCH_L",
+      "joints": [
+        "J01_HIP_ROLL_L"
+      ],
+      "ancestry": [
+        "LINK_HIP_ROLL_L",
+        "LINK_HIP_PITCH_L",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.004662,
+        0.040322,
+        -0.10752
+      ]
+    },
+    {
+      "g1": "left_knee_link",
+      "t800": "LINK_KNEE_PITCH_L",
+      "parent": "LINK_HIP_YAW_L",
+      "joints": [
+        "J03_KNEE_PITCH_L"
+      ],
+      "ancestry": [
+        "LINK_KNEE_PITCH_L",
+        "LINK_HIP_YAW_L",
+        "LINK_HIP_ROLL_L",
+        "LINK_HIP_PITCH_L",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        -0.037707,
+        0.0,
+        -0.28792
+      ]
+    },
+    {
+      "g1": "left_ankle_roll_link",
+      "t800": "LINK_ANKLE_ROLL_L",
+      "parent": "LINK_ANKLE_PITCH_L",
+      "joints": [
+        "J05_ANKLE_ROLL_L"
+      ],
+      "ancestry": [
+        "LINK_ANKLE_ROLL_L",
+        "LINK_ANKLE_PITCH_L",
+        "LINK_KNEE_PITCH_L",
+        "LINK_HIP_YAW_L",
+        "LINK_HIP_ROLL_L",
+        "LINK_HIP_PITCH_L",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.0011073,
+        0.0,
+        -0.037928
+      ]
+    },
+    {
+      "g1": "right_hip_roll_link",
+      "t800": "LINK_HIP_ROLL_R",
+      "parent": "LINK_HIP_PITCH_R",
+      "joints": [
+        "J07_HIP_ROLL_R"
+      ],
+      "ancestry": [
+        "LINK_HIP_ROLL_R",
+        "LINK_HIP_PITCH_R",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.004662,
+        -0.040322,
+        -0.10752
+      ]
+    },
+    {
+      "g1": "right_knee_link",
+      "t800": "LINK_KNEE_PITCH_R",
+      "parent": "LINK_HIP_YAW_R",
+      "joints": [
+        "J09_KNEE_PITCH_R"
+      ],
+      "ancestry": [
+        "LINK_KNEE_PITCH_R",
+        "LINK_HIP_YAW_R",
+        "LINK_HIP_ROLL_R",
+        "LINK_HIP_PITCH_R",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        -0.037707,
+        0.0,
+        -0.28792
+      ]
+    },
+    {
+      "g1": "right_ankle_roll_link",
+      "t800": "LINK_ANKLE_ROLL_R",
+      "parent": "LINK_ANKLE_PITCH_R",
+      "joints": [
+        "J11_ANKLE_ROLL_R"
+      ],
+      "ancestry": [
+        "LINK_ANKLE_ROLL_R",
+        "LINK_ANKLE_PITCH_R",
+        "LINK_KNEE_PITCH_R",
+        "LINK_HIP_YAW_R",
+        "LINK_HIP_ROLL_R",
+        "LINK_HIP_PITCH_R",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.0011073,
+        0.0,
+        -0.037928
+      ]
+    },
+    {
+      "g1": "torso_link",
+      "t800": "LINK_WAIST_YAW",
+      "parent": "LINK_BASE",
+      "joints": [
+        "J12_TORSO_YAW"
+      ],
+      "ancestry": [
+        "LINK_WAIST_YAW",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.0,
+        0.0,
+        0.10384
+      ]
+    },
+    {
+      "g1": "left_shoulder_roll_link",
+      "t800": "LINK_SHOULDER_ROLL_L",
+      "parent": "LINK_SHOULDER_PITCH_L",
+      "joints": [
+        "J14_SHOULDER_ROLL_L"
+      ],
+      "ancestry": [
+        "LINK_SHOULDER_ROLL_L",
+        "LINK_SHOULDER_PITCH_L",
+        "LINK_WAIST_YAW",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.0,
+        0.062533,
+        -0.015455
+      ]
+    },
+    {
+      "g1": "left_elbow_link",
+      "t800": "LINK_ELBOW_PITCH_L",
+      "parent": "LINK_SHOULDER_YAW_L",
+      "joints": [
+        "J16_ELBOW_PITCH_L"
+      ],
+      "ancestry": [
+        "LINK_ELBOW_PITCH_L",
+        "LINK_SHOULDER_YAW_L",
+        "LINK_SHOULDER_ROLL_L",
+        "LINK_SHOULDER_PITCH_L",
+        "LINK_WAIST_YAW",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.0019252,
+        0.013597,
+        -0.15075
+      ]
+    },
+    {
+      "g1": "left_wrist_yaw_link",
+      "t800": "LINK_WRIST_END_L",
+      "parent": "LINK_ELBOW_YAW_L",
+      "joints": [],
+      "ancestry": [
+        "LINK_WRIST_END_L",
+        "LINK_ELBOW_YAW_L",
+        "LINK_ELBOW_PITCH_L",
+        "LINK_SHOULDER_YAW_L",
+        "LINK_SHOULDER_ROLL_L",
+        "LINK_SHOULDER_PITCH_L",
+        "LINK_WAIST_YAW",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.029436,
+        0.0124855,
+        -0.13222151
+      ]
+    },
+    {
+      "g1": "right_shoulder_roll_link",
+      "t800": "LINK_SHOULDER_ROLL_R",
+      "parent": "LINK_SHOULDER_PITCH_R",
+      "joints": [
+        "J19_SHOULDER_ROLL_R"
+      ],
+      "ancestry": [
+        "LINK_SHOULDER_ROLL_R",
+        "LINK_SHOULDER_PITCH_R",
+        "LINK_WAIST_YAW",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.0,
+        -0.062533,
+        -0.015455
+      ]
+    },
+    {
+      "g1": "right_elbow_link",
+      "t800": "LINK_ELBOW_PITCH_R",
+      "parent": "LINK_SHOULDER_YAW_R",
+      "joints": [
+        "J21_ELBOW_PITCH_R"
+      ],
+      "ancestry": [
+        "LINK_ELBOW_PITCH_R",
+        "LINK_SHOULDER_YAW_R",
+        "LINK_SHOULDER_ROLL_R",
+        "LINK_SHOULDER_PITCH_R",
+        "LINK_WAIST_YAW",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.0019252,
+        -0.013597,
+        -0.15075
+      ]
+    },
+    {
+      "g1": "right_wrist_yaw_link",
+      "t800": "LINK_WRIST_END_R",
+      "parent": "LINK_ELBOW_YAW_R",
+      "joints": [],
+      "ancestry": [
+        "LINK_WRIST_END_R",
+        "LINK_ELBOW_YAW_R",
+        "LINK_ELBOW_PITCH_R",
+        "LINK_SHOULDER_YAW_R",
+        "LINK_SHOULDER_ROLL_R",
+        "LINK_SHOULDER_PITCH_R",
+        "LINK_WAIST_YAW",
+        "LINK_BASE"
+      ],
+      "body_offset_m": [
+        0.029436,
+        -0.0124855,
+        -0.13222151
+      ]
+    }
+  ],
+  "unscaled_reward_max_abs_error": {
+    "motion_global_root_pos": 2.682209014892578e-07,
+    "motion_global_root_ori": 3.427267074584961e-07,
+    "motion_body_pos": 4.172325134277344e-07,
+    "motion_body_ori": 5.364418029785156e-07,
+    "motion_body_lin_vel": 1.3709068298339844e-06,
+    "motion_body_ang_vel": 3.8743019104003906e-07,
+    "action_rate_l2": 2.384185791015625e-07,
+    "joint_limit": 2.9802322387695312e-08
+  },
+  "observation_newest_frame_max_abs_error": 1.0728836059570312e-06,
+  "goal_max_abs_error": 5.066394805908203e-07,
+  "steps": 25,
+  "num_envs": 8,
+  "physical_control_unchanged": [
+    "T800 MJCF",
+    "Kp/Kd",
+    "effort limits",
+    "default pose",
+    "collisions",
+    "200 Hz physics / 50 Hz control"
+  ],
+  "differences_from_old_adapter": [
+    "Add 9-D waist-relative pose to environment and imagination goals",
+    "Fix head PD targets at default; mask head policy output, execution noise and replay actions"
+  ],
+  "limitations": [
+    "Anatomical correspondence does not make G1 and T800 geometry, dynamics or retargeting identical.",
+    "Reward parity compares both implementations after forward and command refresh, at a common state/reference instant."
+  ]
+}

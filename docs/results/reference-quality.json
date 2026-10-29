@@ -1,0 +1,191 @@
+{
+  "status": "passed",
+  "training_allowed": true,
+  "selected_full_motion": "data/npz/t800_walk1_selected_seed/walk1_subject1.npz",
+  "selected_crop_motion": "data/npz/t800_walk1_selected_crop/walk1_10s_4s.npz",
+  "native_reference_retained": "data/npz/t800_walk1_full/walk1_subject1.npz",
+  "selection": "Minimum weighted GMR residual among ten initial right-arm postures on first 600 source frames, confirmed over full motion before training.",
+  "solver_or_task_weights_changed": false,
+  "per_frame_restarts": false,
+  "quality": {
+    "candidate": {
+      "mean_task_error": {
+        "Hips": {
+          "position_m": 0.03581587730710173,
+          "orientation_rad": 0.1968490465454356
+        },
+        "LeftUpLeg": {
+          "position_m": 0.15099899738393013,
+          "orientation_rad": 0.11796813309606898
+        },
+        "LeftLeg": {
+          "position_m": 0.057803392862402624,
+          "orientation_rad": 0.1218401588895417
+        },
+        "LeftFootMod": {
+          "position_m": 0.004001672275576434,
+          "orientation_rad": 0.03915814465590217
+        },
+        "RightUpLeg": {
+          "position_m": 0.15694312247313996,
+          "orientation_rad": 0.14233477089851307
+        },
+        "RightLeg": {
+          "position_m": 0.04991899191817158,
+          "orientation_rad": 0.10714370120886972
+        },
+        "RightFootMod": {
+          "position_m": 0.0030947070947520724,
+          "orientation_rad": 0.04207374577769963
+        },
+        "Spine2": {
+          "position_m": 0.17033336806461744,
+          "orientation_rad": 0.15545507495547728
+        },
+        "LeftArm": {
+          "position_m": 0.20207822141693296,
+          "orientation_rad": 0.18728795405605428
+        },
+        "LeftForeArm": {
+          "position_m": 0.1283164714698174,
+          "orientation_rad": 0.24733614027586207
+        },
+        "LeftHand": {
+          "position_m": 0.07332171018471131,
+          "orientation_rad": 0.3955709392822378
+        },
+        "RightArm": {
+          "position_m": 0.20290800955641622,
+          "orientation_rad": 0.19144879912981594
+        },
+        "RightForeArm": {
+          "position_m": 0.1257525436196617,
+          "orientation_rad": 0.23836129576139337
+        },
+        "RightHand": {
+          "position_m": 0.06558871097929145,
+          "orientation_rad": 0.3459551703849764
+        }
+      },
+      "hard_limit_near_001rad_fraction": {
+        "J00_HIP_PITCH_L": 0.0,
+        "J01_HIP_ROLL_L": 0.0,
+        "J02_HIP_YAW_L": 0.0,
+        "J03_KNEE_PITCH_L": 0.0,
+        "J04_ANKLE_PITCH_L": 0.0,
+        "J05_ANKLE_ROLL_L": 0.040943877551020406,
+        "J06_HIP_PITCH_R": 0.0,
+        "J07_HIP_ROLL_R": 0.0,
+        "J08_HIP_YAW_R": 0.0,
+        "J09_KNEE_PITCH_R": 0.0,
+        "J10_ANKLE_PITCH_R": 0.004081632653061225,
+        "J11_ANKLE_ROLL_R": 0.02538265306122449,
+        "J12_TORSO_YAW": 0.0,
+        "J13_SHOULDER_PITCH_L": 0.0,
+        "J14_SHOULDER_ROLL_L": 0.0,
+        "J15_SHOULDER_YAW_L": 0.0,
+        "J16_ELBOW_PITCH_L": 0.0,
+        "J17_ELBOW_YAW_L": 0.0,
+        "J18_SHOULDER_PITCH_R": 0.0,
+        "J19_SHOULDER_ROLL_R": 0.0,
+        "J20_SHOULDER_YAW_R": 0.0,
+        "J21_ELBOW_PITCH_R": 0.0,
+        "J22_ELBOW_YAW_R": 0.0,
+        "J23_HEAD_PITCH": 0.0,
+        "J24_HEAD_YAW": 0.0
+      },
+      "mean_task_position_m": 0.10191969975760877,
+      "mean_task_orientation_rad": 0.18062736249413197
+    },
+    "native": {
+      "mean_task_error": {
+        "Hips": {
+          "position_m": 0.048742681405299006,
+          "orientation_rad": 0.2638261262729044
+        },
+        "LeftUpLeg": {
+          "position_m": 0.15651505395864668,
+          "orientation_rad": 0.12439042611275644
+        },
+        "LeftLeg": {
+          "position_m": 0.06591670146316395,
+          "orientation_rad": 0.13884272696669242
+        },
+        "LeftFootMod": {
+          "position_m": 0.005480867651144178,
+          "orientation_rad": 0.04105343962718617
+        },
+        "RightUpLeg": {
+          "position_m": 0.16767450667159944,
+          "orientation_rad": 0.18047028633815498
+        },
+        "RightLeg": {
+          "position_m": 0.04758466330945452,
+          "orientation_rad": 0.10598797018369728
+        },
+        "RightFootMod": {
+          "position_m": 0.003906887582801905,
+          "orientation_rad": 0.04727175626969573
+        },
+        "Spine2": {
+          "position_m": 0.18053957438758292,
+          "orientation_rad": 0.2571480091107395
+        },
+        "LeftArm": {
+          "position_m": 0.1847883959852773,
+          "orientation_rad": 0.18368747811392258
+        },
+        "LeftForeArm": {
+          "position_m": 0.1123157209795875,
+          "orientation_rad": 0.26090059046705916
+        },
+        "LeftHand": {
+          "position_m": 0.07000646875334274,
+          "orientation_rad": 0.39009701913764766
+        },
+        "RightArm": {
+          "position_m": 0.22176538986796815,
+          "orientation_rad": 0.5286835408156997
+        },
+        "RightForeArm": {
+          "position_m": 0.1701731632725184,
+          "orientation_rad": 0.3021894043800121
+        },
+        "RightHand": {
+          "position_m": 0.1609122363320218,
+          "orientation_rad": 0.3338676544026192
+        }
+      },
+      "hard_limit_near_001rad_fraction": {
+        "J00_HIP_PITCH_L": 0.0,
+        "J01_HIP_ROLL_L": 0.0,
+        "J02_HIP_YAW_L": 0.0,
+        "J03_KNEE_PITCH_L": 0.0,
+        "J04_ANKLE_PITCH_L": 0.00012755102040816328,
+        "J05_ANKLE_ROLL_L": 0.044387755102040814,
+        "J06_HIP_PITCH_R": 0.0,
+        "J07_HIP_ROLL_R": 0.0,
+        "J08_HIP_YAW_R": 0.0,
+        "J09_KNEE_PITCH_R": 0.0,
+        "J10_ANKLE_PITCH_R": 0.004081632653061225,
+        "J11_ANKLE_ROLL_R": 0.026530612244897958,
+        "J12_TORSO_YAW": 0.0,
+        "J13_SHOULDER_PITCH_L": 0.0,
+        "J14_SHOULDER_ROLL_L": 0.0,
+        "J15_SHOULDER_YAW_L": 0.0,
+        "J16_ELBOW_PITCH_L": 0.0,
+        "J17_ELBOW_YAW_L": 0.0,
+        "J18_SHOULDER_PITCH_R": 0.0,
+        "J19_SHOULDER_ROLL_R": 0.44285714285714284,
+        "J20_SHOULDER_YAW_R": 0.5566326530612244,
+        "J21_ELBOW_PITCH_R": 0.08915816326530612,
+        "J22_ELBOW_YAW_R": 0.0,
+        "J23_HEAD_PITCH": 0.0,
+        "J24_HEAD_YAW": 0.0
+      },
+      "mean_task_position_m": 0.11402302225860061,
+      "mean_task_orientation_rad": 0.2256011734427705
+    }
+  },
+  "limitations": "Improved kinematic reference fit and limit occupancy; full dynamic feasibility remains a training/evaluation question."
+}
